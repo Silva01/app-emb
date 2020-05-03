@@ -42,9 +42,15 @@ public class PessoaEntidade {
 
     @ManyToMany
     @JoinTable(name = "pessoasPerfis",
-            joinColumns = { @JoinColumn(name = "idPessoa") },
+            joinColumns = { @JoinColumn(name = "cpfPessoa") },
             inverseJoinColumns = {@JoinColumn(name = "idPerfil") })
     private List<PerfilEntidade> perfis;
+
+    @ManyToMany
+    @JoinTable(name = "pessoasNiveis",
+            joinColumns = { @JoinColumn(name = "cpfPessoa") },
+            inverseJoinColumns = {@JoinColumn(name = "idNivel") })
+    private List<NivelEntidade> niveis;
 
     public Integer getId() {
         return id;
@@ -124,5 +130,13 @@ public class PessoaEntidade {
 
     public void setPerfis(List<PerfilEntidade> perfis) {
         this.perfis = perfis;
+    }
+
+    public List<NivelEntidade> getNiveis() {
+        return niveis;
+    }
+
+    public void setNiveis(List<NivelEntidade> niveis) {
+        this.niveis = niveis;
     }
 }
