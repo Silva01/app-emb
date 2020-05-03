@@ -38,6 +38,7 @@ public class PessoaEntidade {
     @Column(nullable = false)
     @NotBlank
     private LocalDate dataNascimento;
+
     private Boolean ativo;
 
     @ManyToMany
@@ -51,6 +52,16 @@ public class PessoaEntidade {
             joinColumns = { @JoinColumn(name = "cpfPessoa") },
             inverseJoinColumns = {@JoinColumn(name = "idNivel") })
     private List<NivelEntidade> niveis;
+
+    @ManyToMany
+    @JoinTable(name = "pessoasTurnos",
+    joinColumns = {@JoinColumn(name = "cpfPessoa") },
+    inverseJoinColumns = {@JoinColumn(name = "idTurno") })
+    private List<TurnoEntidade> turnos;
+
+    public PessoaEntidade() {
+        ativo = true;
+    }
 
     public Integer getId() {
         return id;
@@ -138,5 +149,13 @@ public class PessoaEntidade {
 
     public void setNiveis(List<NivelEntidade> niveis) {
         this.niveis = niveis;
+    }
+
+    public List<TurnoEntidade> getTurnos() {
+        return turnos;
+    }
+
+    public void setTurnos(List<TurnoEntidade> turnos) {
+        this.turnos = turnos;
     }
 }
