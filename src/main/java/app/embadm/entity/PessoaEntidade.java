@@ -3,8 +3,8 @@ package app.embadm.entity;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.awt.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table (name = "pessoa")
