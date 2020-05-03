@@ -44,7 +44,7 @@ public class PessoaEntidade {
     @JoinTable(name = "pessoasPerfis",
             joinColumns = { @JoinColumn(name = "idPessoa") },
             inverseJoinColumns = {@JoinColumn(name = "idPerfil") })
-    private List<Perfil> perfis;
+    private List<PerfilEntidade> perfis;
 
     public Integer getId() {
         return id;
@@ -118,11 +118,11 @@ public class PessoaEntidade {
         this.ativo = ativo;
     }
 
-    public List<Perfil> getPerfis() {
+    public List<PerfilEntidade> getPerfis() {
         return perfis;
     }
 
-    public void setPerfis(List<Perfil> perfis) {
+    public void setPerfis(List<PerfilEntidade> perfis) {
         this.perfis = perfis;
     }
 }
