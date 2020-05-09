@@ -5,8 +5,8 @@ import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Entity
-@Table(name = "nivel")
-public class NivelEntidade {
+@Table(name = "materia")
+public class MateriaEntidade {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,18 +14,15 @@ public class NivelEntidade {
 
     @Column(nullable = false)
     @NotBlank
-    private String nivel;
+    private String nome;
 
-    @Column(nullable = false)
-    @NotBlank
-    private String nomenclatura;
-
+    private String descricao;
     private Boolean ativo;
 
     @ManyToMany
-    @JoinTable(name = "niveisPessoas",
-    joinColumns = { @JoinColumn(name = "idNivel") },
-    inverseJoinColumns = { @JoinColumn(name = "cpfPessoa")} )
+    @JoinTable(name = "materiasPessoas",
+    joinColumns = {@JoinColumn(name = "idMateria")},
+    inverseJoinColumns = {@JoinColumn(name = "cpfPessoa")})
     private List<PessoaEntidade> pessoas;
 
     public Integer getId() {
@@ -36,20 +33,20 @@ public class NivelEntidade {
         this.id = id;
     }
 
-    public String getNivel() {
-        return nivel;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getNomenclatura() {
-        return nomenclatura;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public void setNomenclatura(String nomenclatura) {
-        this.nomenclatura = nomenclatura;
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
     public Boolean getAtivo() {
