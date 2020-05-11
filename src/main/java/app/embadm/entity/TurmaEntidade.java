@@ -3,34 +3,34 @@ package app.embadm.entity;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "turma")
+//@Entity
+//@Table(name = "turma")
 public class TurmaEntidade {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToMany
-    @JoinTable(name = "turmasPessoas",
-    joinColumns = {@JoinColumn(name = "idTurma")},
-    inverseJoinColumns = {@JoinColumn(name = "cpfPessoa")})
+//    @ManyToMany
+//    @JoinTable(name = "turmasPessoas",
+//    joinColumns = {@JoinColumn(name = "idTurma")},
+//    inverseJoinColumns = {@JoinColumn(name = "cpfPessoa")})
     private List<PessoaEntidade> pessoas;
 
-    @ManyToMany
-    @JoinTable(name = "turmasTurnos",
-    joinColumns = {@JoinColumn(name = "idTurma")},
-    inverseJoinColumns = {@JoinColumn(name = "idTurno")})
+//    @ManyToMany
+//    @JoinTable(name = "turmasTurnos",
+//    joinColumns = {@JoinColumn(name = "idTurma")},
+//    inverseJoinColumns = {@JoinColumn(name = "idTurno")})
     private List<TurnoEntidade> turnos;
 
-    @ManyToMany
-    @JoinTable(name = "turmasNiveis",
-    joinColumns = {@JoinColumn(name = "idTurma")},
-    inverseJoinColumns = {@JoinColumn(name = "idNivel")})
+//    @ManyToMany
+//    @JoinTable(name = "turmasNiveis",
+//    joinColumns = {@JoinColumn(name = "idTurma")},
+//    inverseJoinColumns = {@JoinColumn(name = "idNivel")})
     private List<NivelEntidade> niveis;
 
-    @ManyToOne
-    @JoinColumn(name = "idMateria")
+//    @ManyToOne
+//    @JoinColumn(name = "idMateria")
     private MateriaEntidade materia;
 
     public Integer getId() {

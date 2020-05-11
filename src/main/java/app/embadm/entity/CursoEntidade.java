@@ -4,30 +4,30 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Entity
-@Table(name = "curso")
+//@Entity
+//@Table(name = "curso")
 public class CursoEntidade {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    @NotBlank
+//    @Column(nullable = false)
+//    @NotBlank
     private String nome;
     private String descricao;
     private Boolean ativo;
 
-    @ManyToMany
-    @JoinTable(name = "cursosMaterias",
-    joinColumns = {@JoinColumn(name = "idCurso")},
-    inverseJoinColumns = {@JoinColumn(name = "idMateria")})
+//    @ManyToMany
+//    @JoinTable(name = "cursosMaterias",
+//    joinColumns = {@JoinColumn(name = "idCurso")},
+//    inverseJoinColumns = {@JoinColumn(name = "idMateria")})
     private List<MateriaEntidade> materias;
 
-    @ManyToMany
-    @JoinTable(name = "cursosPessoas",
-    joinColumns = {@JoinColumn(name = "idCurso")},
-    inverseJoinColumns = {@JoinColumn(name = "cpfPessoa")})
+//    @ManyToMany
+//    @JoinTable(name = "cursosPessoas",
+//    joinColumns = {@JoinColumn(name = "idCurso")},
+//    inverseJoinColumns = {@JoinColumn(name = "cpfPessoa")})
     private List<PessoaEntidade> pessoas;
 
     public Integer getId() {

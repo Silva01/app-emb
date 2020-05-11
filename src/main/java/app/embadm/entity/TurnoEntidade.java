@@ -4,22 +4,22 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
-@Entity
-@Table(name = "turno")
+//@Entity
+//@Table(name = "turno")
 public class TurnoEntidade {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    @NotBlank
+//    @Column(nullable = false)
+//    @NotBlank
     private String nome;
 
-    @ManyToMany
-    @JoinTable(name = "turnosPessoas",
-    joinColumns = {@JoinColumn(name = "idTurno")},
-    inverseJoinColumns = {@JoinColumn(name = "cpfPessoa")})
+//    @ManyToMany
+//    @JoinTable(name = "turnosPessoas",
+//    joinColumns = {@JoinColumn(name = "idTurno")},
+//    inverseJoinColumns = {@JoinColumn(name = "cpfPessoa")})
     private List<PessoaEntidade> pessoas;
 
     public Integer getId() {
