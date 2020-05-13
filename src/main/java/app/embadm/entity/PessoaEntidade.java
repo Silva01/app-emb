@@ -28,6 +28,8 @@ public class PessoaEntidade {
     @Size(max = 20)
     private String cpf;
 
+    private String usuario;
+    private String senha;
     private String telefone;
     private String endereco;
 

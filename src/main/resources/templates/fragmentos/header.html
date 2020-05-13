@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
+<body>
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" th:href="@{/home}">Barra de Navegação</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/pessoas/listar-pessoas}">Pessoas <span
+                            class="sr-only">(current)</span></a>
+                </li>
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" th:href="@{/projetos/listar}">Projetos <span-->
+<!--                            class="sr-only">(current)</span></a>-->
+<!--                </li>-->
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" th:href="@{/tarefas/listar}">Tarefas <span class="sr-only">(current)</span></a>-->
+<!--                </li>-->
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
