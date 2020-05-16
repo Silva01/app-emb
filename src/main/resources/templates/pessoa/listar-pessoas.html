@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <title>Listar Pessoas</title>
+</head>
+<body>
+<div th:insert="~{fragmentos/header::header}"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="col-4">
+                    <a th:href="@{/pessoas/inserir-pessoa}" class="btn btn-success">Cadastrar Pessoa</a>
+                </div>
+                <div class="card-body">
+                    <h3>Pessoas</h3>
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nome</th>
+                            <th scope="col">RG</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Data de Nascimento</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">Endereço</th>
+                            <th scope="col">Ativo?</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="pessoa:${listarPessoas}">
+                            <th scope="row" th:text="${pessoa.cpf}"></th>
+                            <td th:text="${pessoa.nome}"></td>
+                            <td th:text="${pessoa.ativo} ? 'Ativado' : 'Desativado'"></td>
+                            <td>
+                                <a th:href="@{/pessoas/deletarPessoaPorCpf/{id}(id=${pessoa.id})}" class="btn btn-danger">Deletar</a>
+                                <a th:href="@{/pessoas/atualizarPessoaPorCpf/{id}(id=${pessoa.id})}" class="btn btn-warning">Atualizar</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

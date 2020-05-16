@@ -10,6 +10,8 @@ import java.util.List;
 @Table (name = "pessoa")
 public class PessoaEntidade {
 
+    @Column(nullable = false)
+    @NotBlank
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
 
@@ -39,7 +41,7 @@ public class PessoaEntidade {
 
     @Column(nullable = false)
     @NotBlank
-    private LocalDate dataNascimento;
+    private String dataNascimento;
 
     private Boolean ativo;
 
@@ -109,11 +111,11 @@ public class PessoaEntidade {
         this.email = email;
     }
 
-    public LocalDate getDataNascimento() {
+    public String getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
