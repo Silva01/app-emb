@@ -28,16 +28,22 @@
                             <th scope="col">Telefone</th>
                             <th scope="col">Endereço</th>
                             <th scope="col">Ativo?</th>
+                            <th scope="col">Ações</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="pessoa:${listarPessoas}">
-                            <th scope="row" th:text="${pessoa.cpf}"></th>
-                            <td th:text="${pessoa.nome}"></td>
+                            <th th:text="${pessoa.nome}"></th>
+                            <td th:text="${pessoa.rg}"></td>
+                            <td th:text="${pessoa.cpf}"></td>
+                            <td th:text="${pessoa.dataNascimento}"></td>
+                            <td th:text="${pessoa.email}"></td>
+                            <td th:text="${pessoa.telefone}"></td>
+                            <td th:text="${pessoa.endereco}"></td>
                             <td th:text="${pessoa.ativo} ? 'Ativado' : 'Desativado'"></td>
                             <td>
-                                <a th:href="@{/pessoas/deletarPessoaPorCpf/{id}(id=${pessoa.id})}" class="btn btn-danger">Deletar</a>
-                                <a th:href="@{/pessoas/atualizarPessoaPorCpf/{id}(id=${pessoa.id})}" class="btn btn-warning">Atualizar</a>
+                                <a th:href="@{/pessoas/deletar-pessoa/{cpf}(cpf=${pessoa.cpf})}" class="btn btn-danger">Deletar</a>
+                                <a th:href="@{/pessoas/atualizar-pessoa/{cpf}(cpf=${pessoa.cpf})}" class="btn btn-warning">Atualizar</a>
                             </td>
                         </tr>
                         </tbody>

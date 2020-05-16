@@ -3,12 +3,10 @@ package app.embadm.controller;
 import app.embadm.entity.PessoaEntidade;
 import app.embadm.service.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("pessoas")
@@ -34,18 +32,18 @@ public class PessoaController {
     @GetMapping("listar-pessoas")
     public String listarPessoas (Model model) {
         model.addAttribute("listarPessoas", pessoaService.listarTodasPessoas());
-        return "pessoas/listar-pessoas";
+        return "pessoa/listar-pessoas";
     }
 
     @RequestMapping(path = "/deletar-pessoa/{cpf}")
-    public String deletarPessoaPorCpf (@PathVariable("cpf") Integer cpf, Model model) {
+    public String deletarPessoaPorCpf (@PathVariable("cpf") String cpf, Model model) {
         pessoaService.deletarPessoaPorCpf(cpf);
         model.addAttribute("listarPessoas", pessoaService.listarTodasPessoas());
         return "redirect:/pessoas/listar-pessoas";
     }
 
     @GetMapping("atualizar-pessoa/{cpf}")
-    public String atualizarPessoaPorCpf (@PathVariable("cpf") Integer cpf, Model model) {
+    public String atualizarPessoaPorCpf (@PathVariable("cpf") String cpf, Model model) {
         model.addAttribute("pessoa", pessoaService.obterPessoaPorCpf(cpf));
         return "pessoa/inserir-pessoa";
     }

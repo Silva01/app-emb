@@ -12,11 +12,6 @@ public class PessoaEntidade {
 
     @Column(nullable = false)
     @NotBlank
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(nullable = false)
-    @NotBlank
     @Size(min = 2, max = 255)
     private String nome;
 
@@ -27,7 +22,7 @@ public class PessoaEntidade {
     @Id
     @Column(nullable = false)
     @NotBlank
-    @Size(max = 20)
+    @Size(min = 1, max = 20)
     private String cpf;
 
     private String usuario;
@@ -53,14 +48,6 @@ public class PessoaEntidade {
 
     public PessoaEntidade() {
         ativo = true;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNome() {

@@ -17,12 +17,31 @@
                 <form action="#" th:action="@{/pessoas/salvar-pessoa}" th:object="${pessoa}" method="post">
                     <div class="form-group">
                         <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome">
-                        <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="rg" th:field="*{rg}" placeholder="Nome">
+                        <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="Nome da pessoa">
+
+                        <label for="rg">RG</label>
+                        <input type="text" class="form-control" id="rg" th:field="*{rg}" placeholder="1122009">
+
+                        <label for="cpf">CPF</label>
+                        <input type="text" class="form-control" id="cpf" th:field="*{cpf}">
+
+                        <label for="rg">Data de Nascimento</label>
+                        <input type="text" class="form-control" id="data-nascimento" th:field="*{dataNascimento}"
+                               placeholder="07/12/1988">
+
+                        <label for="email">E-mail</label>
+                        <input type="text" class="form-control" id="email" th:field="*{email}" placeholder="email@email.com">
+
+                        <label for="telefone">Telefone</label>
+                        <input type="text" class="form-control" id="telefone" th:field="*{telefone}" placeholder="(61) 99999-9999">
+
+                        <label for="telefone">Endereço</label>
+                        <input type="text" class="form-control" id="endereco" th:field="*{endereco}" placeholder="bairro">
+
                     </div>
-                    <input type="hidden" id="id" th:field="*{id}">
-                    <button type="submit" class="btn btn-primary">Inserir</button>
+
+<!--                    <input th:if="cpf != null" type="hidden" id="botao" th:field="*{cpf}">-->
+                    <button type="submit" class="btn btn-primary">Inserir Pessoa</button>
                 </form>
             </div>
         </div>

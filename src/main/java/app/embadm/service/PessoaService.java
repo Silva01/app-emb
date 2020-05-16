@@ -22,10 +22,10 @@ public class PessoaService {
                 .collect(Collectors.toList());
     }
 
-    public void deletarPessoaPorCpf (Integer cpf) {pessoaRepository.deleteById(cpf); }
+    public void deletarPessoaPorCpf (String cpf) {pessoaRepository.deleteByCpf(cpf); }
 
-    public PessoaEntidade obterPessoaPorCpf (Integer cpf) {
-        return pessoaRepository.findById(cpf).get();
+    public PessoaEntidade obterPessoaPorCpf (String cpf) {
+        return pessoaRepository.findByCpf(cpf);
     }
     
 }
