@@ -28,13 +28,8 @@ public class PerfilService {
         perfilRepository.deleteById(id);
     }
 
-    public PerfilEntidade atualizarPerfilPorId (Integer id) {
+    public PerfilEntidade obterPerfilPorId (Integer id) {
         return perfilRepository.findById(id).get();
-    }
-
-    public List<PerfilEntidade> listarTodosPerfisComIdIgual (List<Integer> ids) {
-        return StreamSupport.stream(perfilRepository.findAllById(ids).spliterator(), false)
-                .collect(Collectors.toList());
     }
 
 }

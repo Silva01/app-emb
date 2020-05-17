@@ -40,13 +40,13 @@ public class PerfilController {
     public String deletarPerfilPorId (@PathVariable("id") Integer id, Model model) {
         perfilService.deletarPerfil(id);
         model.addAttribute("listarPerfis", perfilService.listarTodosOsPerfis());
-        return "redirect:/perfil/listar-perfis";
+        return "redirect:/perfis/listar-perfis";
     }
 
     @GetMapping("atualizar-perfil/{id}")
     public String atualizarPerfilPorId (@PathVariable("id") Integer id, Model model) {
-        model.addAttribute("pessoa", perfilService.obterPerfilPorId(id));
-        return "perfil/listar-perfis";
+        model.addAttribute("perfil", perfilService.obterPerfilPorId(id));
+        return "perfil/inserir-perfil";
     }
 
 }
