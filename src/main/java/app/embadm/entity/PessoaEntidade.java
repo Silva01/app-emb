@@ -10,6 +10,11 @@ import java.util.List;
 @Table (name = "pessoa")
 public class PessoaEntidade {
 
+    @Id
+    @Column(nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     @Column(nullable = false)
     @NotBlank
     @Size(min = 2, max = 255)
@@ -19,7 +24,6 @@ public class PessoaEntidade {
     @NotBlank
     private String rg;
 
-    @Id
     @Column(nullable = false)
     @NotBlank
     @Size(min = 1, max = 20)
@@ -40,11 +44,17 @@ public class PessoaEntidade {
 
     private Boolean ativo;
 
-    @ManyToMany
-    @JoinTable(name = "pessoasPerfis",
-            joinColumns = { @JoinColumn(name = "cpfPessoa") },
-            inverseJoinColumns = {@JoinColumn(name = "idPerfil") })
-    private List<PerfilEntidade> perfis;
+    @ManyToOne
+    @JoinColumn(name = "idPerfil")
+    private PerfilEntidade perfil;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public PessoaEntidade() {
         ativo = true;
@@ -114,12 +124,11 @@ public class PessoaEntidade {
         this.ativo = ativo;
     }
 
-    public List<PerfilEntidade> getPerfis() {
-        return perfis;
+    public PerfilEntidade getPerfil() {
+        return perfil;
     }
 
-    public void setPerfis(List<PerfilEntidade> perfis) {
-        this.perfis = perfis;
+    public void setPerfil(PerfilEntidade perfil) {
+        this.perfil = perfil;
     }
-
 }
