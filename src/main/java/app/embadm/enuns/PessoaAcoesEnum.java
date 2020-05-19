@@ -12,7 +12,7 @@ public enum PessoaAcoesEnum implements Acao {
 
     @Override
     public String getAcao() {
-        return null;
+        return acao;
     }
 
     PessoaAcoesEnum(String acao) {
