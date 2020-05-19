@@ -20,6 +20,7 @@
                     <table class="table">
                         <thead class="thead-dark">
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Nome</th>
                             <th scope="col">RG</th>
                             <th scope="col">CPF</th>
@@ -33,6 +34,7 @@
                         </thead>
                         <tbody>
                         <tr th:each="pessoa:${listarPessoas}">
+                            <th th:text="${pessoa.id}"></th>
                             <th th:text="${pessoa.nome}"></th>
                             <td th:text="${pessoa.rg}"></td>
                             <td th:text="${pessoa.cpf}"></td>
@@ -40,7 +42,7 @@
                             <td th:text="${pessoa.email}"></td>
                             <td th:text="${pessoa.telefone}"></td>
                             <td th:text="${pessoa.endereco}"></td>
-                            <td th:text="${pessoa.ativo} ? 'Ativado' : 'Desativado'"></td>
+                            <td th:text="${pessoa.ativo} ? 'Ativo' : 'Inativo'"></td>
                             <td>
                                 <a th:href="@{/pessoas/deletar-pessoa/{cpf}(cpf=${pessoa.cpf})}" class="btn btn-danger">Deletar</a>
                                 <a th:href="@{/pessoas/atualizar-pessoa/{cpf}(cpf=${pessoa.cpf})}" class="btn btn-warning">Atualizar</a>
