@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
-    <link href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" type="text/css" rel="stylesheet"/>
+<!--    <link th:href="@{../../static/css/custom.css}" type="text/css" rel="stylesheet">-->
     <meta charset="UTF-8">
     <title>Listar Pessoas</title>
 </head>
@@ -29,6 +30,7 @@
                             <th scope="col">Telefone</th>
                             <th scope="col">Endereço</th>
                             <th scope="col">Ativo?</th>
+                            <th scope="col">Perfil</th>
                             <th scope="col">Ações</th>
                         </tr>
                         </thead>
@@ -43,6 +45,7 @@
                             <td th:text="${pessoa.telefone}"></td>
                             <td th:text="${pessoa.endereco}"></td>
                             <td th:text="${pessoa.ativo} ? 'Ativo' : 'Inativo'"></td>
+                            <td th:text="${pessoa.perfil.perfil}"></td>
                             <td>
                                 <a th:href="@{/pessoas/deletar-pessoa/{cpf}(cpf=${pessoa.cpf})}" class="btn btn-danger">Deletar</a>
                                 <a th:href="@{/pessoas/atualizar-pessoa/{cpf}(cpf=${pessoa.cpf})}" class="btn btn-warning">Atualizar</a>

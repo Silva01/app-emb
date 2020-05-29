@@ -17,13 +17,9 @@ public class MateriaEntidade {
     private String nome;
 
     private String descricao;
-    private Boolean ativo;
 
-    @ManyToMany
-    @JoinTable(name = "materiasPessoas",
-    joinColumns = {@JoinColumn(name = "idMateria")},
-    inverseJoinColumns = {@JoinColumn(name = "idPessoa")})
-    private List<PessoaEntidade> pessoas;
+    @Column(columnDefinition = "boolean default true")
+    private Boolean ativo;
 
     public Integer getId() {
         return id;
@@ -57,11 +53,4 @@ public class MateriaEntidade {
         this.ativo = ativo;
     }
 
-    public List<PessoaEntidade> getPessoas() {
-        return pessoas;
-    }
-
-    public void setPessoas(List<PessoaEntidade> pessoas) {
-        this.pessoas = pessoas;
-    }
 }

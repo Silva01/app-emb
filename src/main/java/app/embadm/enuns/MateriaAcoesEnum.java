@@ -4,8 +4,8 @@ import app.embadm.Acao;
 
 public enum MateriaAcoesEnum implements Acao {
 
-    REDIRECIONAR_MATERIA("redirect:/materias/listar-materias"),
-    LISTAR_MATERIA_ENDPOINT("materias/listar-materias"),
+    REDIRECIONAR_MATERIA_PARA_ENDPOINT_DE_LISTAGEM("redirect:/materias/listar-materias"),
+    LISTAR_MATERIA_TEMPLATE("materia/listar-materias"),
     INCLUIR_MATERIA("materia/inserir-materia");
 
     private String acao;
